@@ -17,10 +17,6 @@
 # Display
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1600
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys-intf/display
     
 # Virtual A/B OTA
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -61,7 +57,7 @@ PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
-TARGET_RECOVERY_DEVICE_MODULES += libion vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti bootctrl.$(TARGET_BOARD_PLATFORM).recovery
+TARGET_RECOVERY_DEVICE_MODULES += libion bootctrl.$(TARGET_BOARD_PLATFORM).recovery
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
@@ -79,7 +75,7 @@ TW_DEFAULT_BRIGHTNESS := 1500
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
-TW_NO_SCREEN_BLANK := true
+TW_SCREEN_BLANK_ON_BOOT := true
 TW_EXCLUDE_APEX := true
 TW_INCLUDE_FASTBOOTD := true
 TW_LOAD_VENDOR_MODULES := true
@@ -90,10 +86,7 @@ TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
 
 # Boot control
 PRODUCT_PACKAGES += \

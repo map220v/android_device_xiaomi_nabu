@@ -31,9 +31,3 @@ on fs
     # Symlink bootdevice
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
-on boot
-    # Hack to fix drm graphics init
-    wait /tmp/recovery.log
-    stop recovery
-    start recovery
