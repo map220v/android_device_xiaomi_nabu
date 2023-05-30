@@ -6,12 +6,11 @@
 
 /metadata      ext4    /dev/block/bootdevice/by-name/metadata                    flags=display="Metadata";backup=1;wrappedkey
 /data          f2fs    /dev/block/bootdevice/by-name/userdata                    flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=aes-256-xts:wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
-/boot_a        emmc    /dev/block/bootdevice/by-name/boot_a
-/boot_b        emmc    /dev/block/bootdevice/by-name/boot_b
+/boot_a        emmc    /dev/block/bootdevice/by-name/boot_a                      flags=backup=1;display="Boot_a";flashimg=1
+/boot_b        emmc    /dev/block/bootdevice/by-name/boot_b                      flags=backup=1;display="Boot_b";flashimg=1
 /dtbo_a        emmc    /dev/block/bootdevice/by-name/dtbo_a                      flags=backup=1;display="Dtbo_a";flashimg=1
 /dtbo_b        emmc    /dev/block/bootdevice/by-name/dtbo_b                      flags=backup=1;display="Dtbo_b";flashimg=1
-/cache         ext4    /dev/block/bootdevice/by-name/cache
-/firmware      vfat    /dev/block/bootdevice/by-name/modem                       flags=display="Firmware"
+/firmware      vfat    /dev/block/bootdevice/by-name/modem_a                     flags=display="Firmware"
 /cust          ext4    /dev/block/bootdevice/by-name/cust                        flags=display="Cust"
 /misc          emmc    /dev/block/bootdevice/by-name/misc
 /modem_a       emmc    /dev/block/bootdevice/by-name/modem_a                     flags=backup=1;display="Modem_a"
